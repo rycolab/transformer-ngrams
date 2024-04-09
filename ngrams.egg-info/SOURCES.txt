@@ -1,8 +1,0 @@
-setup.py
-ngrams.egg-info/PKG-INFO
-ngrams.egg-info/SOURCES.txt
-ngrams.egg-info/dependency_links.txt
-ngrams.egg-info/requires.txt
-ngrams.egg-info/top_level.txt
-tests/test_heads.py
-tests/test_single.py
