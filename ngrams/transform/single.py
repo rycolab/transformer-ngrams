@@ -86,9 +86,7 @@ class NgramTransform:
         return self.m_inv[np.argmax(x[: self.C1])]
 
     def static_encoding(self, y: str, t: int) -> np.ndarray:
-        return np.concatenate(
-            (10 ** (-(t + 1)) * self.one_hot(y), np.asarray([1, t + 1]))
-        )
+        return np.concatenate((10 ** (-t) * self.one_hot(y), np.asarray([1, t])))
 
     def construct_head(self) -> AttentionHead:
         Wq = np.zeros((2, self.D))
@@ -254,6 +252,8 @@ class NgramTransform:
         def F(Z):
 
             a = Z[-1, :]
+
+            print(a)
 
             # Normalize by the L1 norm and the constant factor
             a = FZ / np.sum(np.abs(a)) * a

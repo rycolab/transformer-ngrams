@@ -89,8 +89,8 @@ class NgramTransform:
 
         pos = np.hstack(
             [
+                [1 / np.sqrt(t), np.sqrt(1 - 1 / t)],
                 [1 / np.sqrt(t + 1), np.sqrt(1 - 1 / (t + 1))],
-                [1 / np.sqrt(t + 2), np.sqrt(1 - 1 / (t + 2))],
             ]
         )
 

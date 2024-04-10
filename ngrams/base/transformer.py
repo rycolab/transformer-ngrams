@@ -135,7 +135,9 @@ class Transformer:
             np.ndarray: The output of the Transformer layer.  # TODO
         """
 
-        X = np.vstack([self.X0(yt, t) for t, yt in enumerate(y)])
+        X = np.vstack([self.X0(yt, t + 1) for t, yt in enumerate(y)])
+
+        print(X)
 
         for ll, layer in enumerate(self.layers):
             X = layer(X)

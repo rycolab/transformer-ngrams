@@ -88,10 +88,7 @@ class NgramTransform:
 
     def static_encoding(self, y: str, t: int) -> np.ndarray:
         pos = np.hstack(
-            [
-                [1 / np.sqrt(t + 1 + j), np.sqrt(1 - 1 / (t + 1 + j))]
-                for j in range(self.n)
-            ]
+            [[1 / np.sqrt(t + j), np.sqrt(1 - 1 / (t + j))] for j in range(self.n)]
         )
 
         X0 = np.concatenate([self.one_hot(y), np.zeros(self.M), pos])
